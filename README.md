@@ -9,3 +9,10 @@ open terminal
 <br>export SUBARCH=arm64
 <br>export CROSS_COMPILE=aarch64-linux-android-
 <br>make angler_defconfig
+
+<br>sudo apt-get install git build-essential abootimg
+<br>copy boot img to folder
+<br>abootimg -x boot.img
+<br>replace zImage-dtb
+<br>sed -i '/bootsize =/d' bootimg.cfg
+<br>abootimg --create newboot.img -f bootimg.cfg -k zImage-dtb -r initrd.img
